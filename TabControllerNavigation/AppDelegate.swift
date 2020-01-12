@@ -11,10 +11,20 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
+    var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        window = UIWindow(frame: UIScreen.main.bounds)
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        //let nc = storyboard.instantiateViewController(withIdentifier: "NC14") as! UINavigationController
+        let vc = storyboard.instantiateViewController(withIdentifier: "ViewController1") as! UIViewController
+//        nc.pushViewController(vc, animated: true)
+        
+        vc.view.backgroundColor = .blue
+
+        window?.rootViewController = vc
+        window?.makeKeyAndVisible()
         return true
     }
 
